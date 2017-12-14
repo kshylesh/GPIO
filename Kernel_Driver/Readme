@@ -1,0 +1,36 @@
+Team 26
+Karthik Shylesh Kumar 1213169085
+Dheemanth Bykere Mallikarjun 1213381271
+
+List of files
+1.rgb_driver.c : Driver program to be installed in kernel
+2.rgb_driver_tester_single.c : Tester program that runs the application once and exits on mouseclick
+3.rgb_driver_tester.c : Tester program that runs the application continously and exits on mouseclick and an argument
+4.rgb_ioctl.h :Header file consisting of ioctl declaration
+
+---------------------------------------------------------------------------------------------------------------------
+Steps for running the program
+---------------------------------------------------------------------------------------------------------------------
+1.Change #define EVENT_PATH "/dev/input/event2" to appropriate event.
+2.Complie and generate object file by using command Make all.
+3.Transfer the required generated executable file(led) to target using the command scp led root@"ip_address":
+4.install the driver module with command insmod <module_name.ko>
+5.Steps for rgb_driver_tester_single.o
+  1.run the exectuable with ./rgb_driver_tester_single.o 
+  2.Select option 1 or 2
+  3.Selecting option 1 will run default configuration with pin number 7 1 10 and duty cycle 50%.
+  4.Selecting option 2 will prompt for new configuration Enter the required pin details and duty cycle.
+  5.Enter the number of bits to light the LED :enter 7 to light up all LEDs
+  6.Click on mouse button to exit the program.
+
+6.Steps for rgb_driver_tester.o
+  1.run the exectuable with ./rgb_driver_tester.o 
+  2.Select option 1 or 2
+  3.Selecting option 1 will run default configuration with pin number 7 1 10 and duty cycle 50%.
+  4.Selecting option 2 will prompt for new configuration Enter the required pin details and duty cycle.
+  5.Enter the number of bits to light the LED :enter 7 to light up all LEDs.
+  6.This application asks user for interactive stopping.To stop the sequencing click on mouse button which takes to step 2 ,
+   now user can either run the program again or stop and exit the program by entering any value other than 1 and 2.
+    Ignore the invalid input comment on exit.This key press is because speed of while loop which gets to prevent the user surpassing
+    the mouse evnt click detection, though in background mouse click is detected. So no matter if you provide input after mouse click       including 1 & 2 , the program stops due to the click detection.
+7.To uninstall the module use rmmod <module_name.ko>
