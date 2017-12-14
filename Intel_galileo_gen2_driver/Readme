@@ -1,0 +1,29 @@
+Team 26
+
+Karthik Shylesh Kumar 1213169085
+Dheemanth Bykere Mallikarjun 1213381271
+--------------------------------------------------------------------------------------------------------------------
+List of files
+
+rgb_tester.c :C file implementing sequencing and main function.
+
+rgb_function.c: C file consisting of functions for gpio export,set direction, set mux value and to get user inputs.
+
+rgb_header.h:header file consisting of function declarations and global variable declarations.
+
+---------------------------------------------------------------------------------------------------------------------
+Steps for running the program
+---------------------------------------------------------------------------------------------------------------------
+1.Change #define EVENT_PATH "/dev/input/event2" to appropriate event.
+2.Complie and generate object file by using command Make all.
+3.Transfer the generated executable file(led) to target using the command scp led root@"ip_address":
+4.Run the program with ./led(executable file name).
+5.Application will prompt for 4 inputs.Input the appropriate values.
+  1.pin1
+  2.pin2
+  3.pin3
+  4.intensity
+6.click on mouse button to stop the execution.
+7.To remove objects files use Make clean command.
+
+
